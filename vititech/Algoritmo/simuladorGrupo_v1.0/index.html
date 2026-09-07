@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VitiTech | Simulação Financeira</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkPaavHn4lsXVH6A6_XUjGil5zLbyEP0dkCYpMwI7FxA&s=10">
-
+    <link rel="icon" type="image/png" href="C:\Users\heito\Downloads\logoVitiTech.png">
 </head>
-
 <body>
 
     <div class="container">
@@ -38,8 +36,8 @@
             </label>
             <select id="select_condicao" required>
                 <option value="#" selected disabled>Selecione uma opção</option>
-                <option value="Seca_Moderada">Estresse Hídrico Moderado - perda de 15%</option>
-                <option value="Seca_Severa">Estresse Hídrico Severo - perda de 40%</option>
+                <option value="Seca Moderada">Estresse Hídrico Moderado - perda de 15%</option>
+                <option value="Seca Severa">Estresse Hídrico Severo - perda de 40%</option>
                 <option value="Encharcamento">Excesso de Umidade Crítico - perda de 50%</option>
             </select>
 
@@ -62,11 +60,11 @@
         let prejuizo = 0;
         let faturamento_Real = 0;
 
-        if (condicao == "Seca_Moderada") {
+        if (condicao == "Seca Moderada") {
             prejuizo = faturamentoIdeal * 0.15;
             faturamento_Real = faturamentoIdeal - prejuizo;
             div_resul.innerHTML = `Com um vinhedo de ${tamanhoVinhedo} hectares, seu faturamento anual estimado seria de R$${faturamentoIdeal}.<br> No cenário de ${condicao}, a perda pode chegar a 15%, colocando aproximadamente R$${prejuizo} da sua receita em risco.<br> Seu faturamento poderia cair para R$ ${faturamento_Real}.`;
-        } else if (condicao == "Seca_Severa") {
+        } else if (condicao == "Seca Severa") {
             prejuizo = faturamentoIdeal * 0.40;
             faturamento_Real = faturamentoIdeal - prejuizo;
             div_resul.innerHTML = `Com um vinhedo de ${tamanhoVinhedo} hectares, seu faturamento anual estimado seria de R$${faturamentoIdeal}.<br> No cenário de ${condicao}, a perda pode chegar a 40%, colocando aproximadamente R$${prejuizo} da sua receita em risco.<br> Seu faturamento poderia cair para R$ ${faturamento_Real}.`;
