@@ -1,0 +1,96 @@
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #4b2861;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            margin: 60px auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .titulo {
+            text-align: center;
+            color: #8d3fa3;
+            margin-bottom: 30px;
+        }
+
+        .simulador {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #8d3fa3;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #8d3fa3;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #6f2f80;
+        }
+
+        #div_resul {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f3eafa;
+            border-radius: 10px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                margin: 30px auto;
+            }
+
+            .simulador {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+        }
