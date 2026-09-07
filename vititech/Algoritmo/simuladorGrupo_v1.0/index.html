@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitiTech</title>
+</head>
+
+<body>
+
+    <h1>VitiTech</h1>
+    
+    <label for="ipt_tamanhoVinhedo">Insira o tamanho do vinhedo em Hectares</label>
+    <input type="text" id="ipt_tamanhoVinhedo"><br>
+
+    <label for="ipt_valorUva">Insira o valor da uva em Kg</label>
+    <input type="text" id="ipt_valorUva" value="6"><br>
+
+    <label for="ipt_produtividadeMedia">Insira a média de produtividade anual em Kg</label>
+    <input type="text" id="ipt_produtividadeMedia"><br>
+
+
+    <select id="select_condicao" required>
+        <option value="#" selected disabled>Selecione uma opção:</option>
+        <option value="Seca_Moderada">Estresse Hídrico Moderado, perda de 15%</option>
+        <option value="Seca_Severa">Estresse Hídrico Severo, perda de 40%</option>
+        <option value="Encharcamento">Excesso de Umidade Crítico, perda de 50%</option>
+    </select>
+
+
+    <button onclick="calcular()">Simular cálculo</button>
+
+
+    <div id="div_resul"></div>
+
+</body>
+</html>
+<script>
+
+
+    function calcular() {
+
+        let tamanhoVinhedo = Number(ipt_tamanhoVinhedo.value);
+
+        let valorUva = Number(ipt_valorUva.value);
+
+        let produtividadeMedia = Number(ipt_produtividadeMedia.value);
+
+        let condicao = select_condicao.value;
+
+        let faturamentoIdeal = tamanhoVinhedo * valorUva * produtividadeMedia;
+
+        let prejuizo = 0;
+
+        let faturamento_Real = 0;
+
+
+        if (condicao == "Seca_Moderada") {
+
+            prejuizo = faturamentoIdeal * 0.15;
+
+            faturamento_Real = faturamentoIdeal - prejuizo;
+
+            div_resul.innerHTML = `Com um vinhedo de ${tamanhoVinhedo} hectares, seu faturamento anual estimado seria de R$${faturamentoIdeal}.<br> No cenário de ${condicao}, a perda pode chegar a 15%, colocando aproximadamente R$${prejuizo} da sua receita em risco.<br> Seu faturamento poderia cair para R$ ${faturamento_Real}.`
+        } else if (condicao == "Seca_Severa") {
+
+            prejuizo = faturamentoIdeal * 0.40;
+
+            faturamento_Real = faturamentoIdeal - prejuizo;
+
+            div_resul.innerHTML = `Com um vinhedo de ${tamanhoVinhedo} hectares, seu faturamento anual estimado seria de R$${faturamentoIdeal}.<br> No cenário de ${condicao}, a perda pode chegar a 40%, colocando aproximadamente R$${prejuizo} da sua receita em risco.<br> Seu faturamento poderia cair para R$ ${faturamento_Real}.`
+        } else if (condicao == "Encharcamento") {
+
+            prejuizo = faturamentoIdeal * 0.50
+
+            faturamento_Real = faturamentoIdeal - prejuizo;
+
+            div_resul.innerHTML =  `Com um vinhedo de ${tamanhoVinhedo} hectares, seu faturamento anual estimado seria de R$${faturamentoIdeal}.<br> No cenário de ${condicao}, a perda pode chegar a 50%, colocando aproximadamente R$${prejuizo} da sua receita em risco.<br> Seu faturamento poderia cair para R$ ${faturamento_Real}.`
+        }
+
+    }
+</script>
