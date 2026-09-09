@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,13 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="C:\Users\heito\Downloads\logoVitiTech.png">
 </head>
+
 <body>
 
     <div class="container">
 
         <h1>VitiTech🍇</h1>
-        <p class="titulo">Simulação Financeira</p>
+        <p class="titulo">Simulação Financeira para Uvas Cabernet Sauvignon</p>
 
         <div class="simulador">
 
@@ -27,7 +29,7 @@
             <input type="number" id="ipt_valorUva" value="6">
 
             <label for="ipt_produtividadeMedia">
-                Produtividade média anual em Kg
+                Produtividade média anual em Kg por hectar
             </label>
             <input type="number" id="ipt_produtividadeMedia" value="8000">
 
@@ -36,9 +38,9 @@
             </label>
             <select id="select_condicao" required>
                 <option value="#" selected disabled>Selecione uma opção</option>
-                <option value="Seca Moderada">Estresse Hídrico Moderado - perda de 15%</option>
-                <option value="Seca Severa">Estresse Hídrico Severo - perda de 40%</option>
-                <option value="Encharcamento">Excesso de Umidade Crítico - perda de 50%</option>
+                <option value="Seca Moderada">Seca Moderada - perda de 15%</option>
+                <option value="Seca Severa">Seca Severa - perda de 40%</option>
+                <option value="Encharcamento">Encharcamento - perda de 50%</option>
             </select>
 
             <button onclick="calcular()">Simular cálculo</button>
@@ -46,8 +48,10 @@
             <div id="div_resul"></div>
 
         </div>
+
     </div>
 </body>
+
 </html>
 
 <script>
@@ -59,19 +63,65 @@
         let faturamentoIdeal = tamanhoVinhedo * valorUva * produtividadeMedia;
         let prejuizo = 0;
         let faturamento_Real = 0;
+        let faturamento_vititech = 0;
 
         if (condicao == "Seca Moderada") {
             prejuizo = faturamentoIdeal * 0.15;
             faturamento_Real = faturamentoIdeal - prejuizo;
-            div_resul.innerHTML = `No cenário de ${condicao}, a perda pode chegar a 15%, colocando aproximadamente R$${(prejuizo).toFixed(2)} da sua receita em risco.<br> <br> Seu faturamento poderia cair para R$ ${(faturamento_Real).toFixed(2)}. <br> <br> Com um vinhedo de ${(tamanhoVinhedo).toFixed(0)} hectares, seu faturamento anual com a <b>VitiTech</b>🍇 estimado seria de R$${(faturamentoIdeal).toFixed(2)}.`
+            faturamento_vititech = (prejuizo * 0.7) + faturamento_Real;
+
+            div_resul.innerHTML =
+                `<center><h3><b>Cenário: ${condicao}</b>
+
+                <br><h4>Perda aproximada de <b>15%</b></h4></center>
+
+                <center><h4>vinhedo de ${(tamanhoVinhedo).toFixed(0)} hectar</h4></center>
+                
+                <br>Faturamento anual sem perdas seria estimado em <b>R$${(faturamentoIdeal).toFixed(2)}</b>.<br><br>
+            
+                Seu faturamento pode cair para <b>R$ ${(faturamento_Real).toFixed(2)}</b>.<br><br>
+            
+                Prejuízo aproximado de <b>R$${(prejuizo).toFixed(2)}</b> no faturamento.<br><br>
+            
+                Com a <b>VitiTech</b>🍇 será alcançado o valor de <b>R$${(faturamento_vititech).toFixed(2)}</b> no faturamento.<br><br>`
         } else if (condicao == "Seca Severa") {
             prejuizo = faturamentoIdeal * 0.40;
             faturamento_Real = faturamentoIdeal - prejuizo;
-            div_resul.innerHTML = `No cenário de ${condicao}, a perda pode chegar a 40%, colocando aproximadamente R$${(prejuizo).toFixed(2)} da sua receita em risco.<br> <br> Seu faturamento poderia cair para R$ ${(faturamento_Real).toFixed(2)}. <br> Com um vinhedo de ${(tamanhoVinhedo).toFixed(0)} hectares, seu faturamento anual com a <b>VitiTech</b>🍇 estimado seria de R$${(faturamentoIdeal).toFixed(2)}.`;
+            faturamento_vititech = (prejuizo * 0.7) + faturamento_Real;
+
+            div_resul.innerHTML =
+                `<center><h3><b>Cenário: ${condicao}</b>
+
+                <br><h4>Perda aproximada de <b>40%</b></h4></center>
+
+                <center><h4>vinhedo de ${(tamanhoVinhedo).toFixed(0)} hectar</h4></center>
+                
+                <br>Faturamento anual sem perdas seria estimado em <b>R$${(faturamentoIdeal).toFixed(2)}</b>.<br><br>
+            
+                Seu faturamento pode cair para <b>R$ ${(faturamento_Real).toFixed(2)}</b>.<br><br>
+            
+                Prejuízo aproximado de <b>R$${(prejuizo).toFixed(2)}</b> no faturamento.<br><br>
+            
+                Com a <b>VitiTech</b>🍇 será alcançado o valor de <b>R$${(faturamento_vititech).toFixed(2)}</b> no faturamento.`
         } else if (condicao == "Encharcamento") {
             prejuizo = faturamentoIdeal * 0.50;
             faturamento_Real = faturamentoIdeal - prejuizo;
-            div_resul.innerHTML = `No cenário de ${condicao}, a perda pode chegar a 50%, colocando aproximadamente R$${(prejuizo).toFixed(2)} da sua receita em risco.<br> <br> Seu faturamento poderia cair para R$ ${(faturamento_Real).toFixed(2)}. <br> Com um vinhedo de ${(tamanhoVinhedo).toFixed(0)} hectares, seu faturamento anual com a <b>VitiTech</b>🍇 estimado seria de R$${(faturamentoIdeal).toFixed(2)}.`;
-            }
+            faturamento_vititech = (prejuizo * 0.7) + faturamento_Real;
+
+            div_resul.innerHTML =
+                `<center><h3><b>Cenário: ${condicao}</b>
+
+                <br><h4>Perda aproximada de <b>50%</b></h4></center>
+
+                <center><h4>vinhedo de ${(tamanhoVinhedo).toFixed(0)} hectar</h4></center>
+                
+                <br>Faturamento anual sem perdas seria estimado em <b>R$${(faturamentoIdeal).toFixed(2)}</b>.<br><br>
+            
+                Seu faturamento pode cair para <b>R$ ${(faturamento_Real).toFixed(2)}</b>.<br><br>
+            
+                Prejuízo aproximado de <b>R$${(prejuizo).toFixed(2)}</b> no faturamento.<br><br>
+            
+                Com a <b>VitiTech</b>🍇 será alcançado o valor de <b>R$${(faturamento_vititech).toFixed(2)}</b> no faturamento.`
         }
+    }
 </script>
