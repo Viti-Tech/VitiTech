@@ -86,3 +86,18 @@ SELECT *,
 	END AS 'Condição do solo'
 FROM registroSensor;
 
+-- --------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO usuario (nome,email,senha,idEmpresa) VALUES
+('Marcelo Santos', 'Marcelo.Santos@sptech.com', 'Marcelo123@', 5),  
+('Gabriel Pereira', 'Gabriel.Pereira@sptech.com', 'Gabriel123@', 6); -- Apresentação
+
+INSERT INTO sensor(nivelProfundidade, linha, coluna, dataInstalacao, idEmpresa, statusSensor) VALUES
+(1, 2, 9, DEFAULT, 1, 'Ativo'),
+(3, 7, 2, DEFAULT, 4, 'Manutenção'); -- Apresentação
+
+SELECT concat('O sensor ', idSensor, ' esta na profundidade ', nivelProfundidade) AS 'Profundidade do sensor' FROM sensor;
+
+SELECT * FROM empresa WHERE telefone = '11956780912';
+
+SELECT * FROM sensor WHERE nivelProfundidade = 1 AND coluna = 8;
