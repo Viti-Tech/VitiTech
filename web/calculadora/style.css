@@ -51,12 +51,6 @@
             font-size: 16px;
         }
 
-        input:focus,
-        select:focus {
-            outline: none;
-            border-color: #8d3fa3;
-        }
-
         button {
             width: 100%;
             padding: 14px;
@@ -66,11 +60,6 @@
             color: white;
             font-size: 17px;
             font-weight: bold;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #6f2f80;
         }
 
         #div_resul {
@@ -78,19 +67,5 @@
             padding: 20px;
             background: #f3eafa;
             border-radius: 10px;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 500px) {
-            .container {
-                margin: 30px auto;
-            }
-
-            .simulador {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 26px;
-            }
+            font-size: 17px;
         }
