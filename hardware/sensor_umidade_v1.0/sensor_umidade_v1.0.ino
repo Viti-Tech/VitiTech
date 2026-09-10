@@ -29,14 +29,17 @@ void loop() { //O código dentro do void loop() roda repetidamente:
   //Serial.print(porcentagemUmidade);
   //Serial.println("%");
 
-   Serial.print("UmidadeMaxima:");
+  Serial.print("Encharcamento:");
   Serial.print(55);
   Serial.print(" ");
-  Serial.print("Umidade:");
+  Serial.print("UmidadeIdeal:");
   Serial.print(porcentagemUmidade);
   Serial.print(" ");
-  Serial.print("UmidadeMinima:");
+  Serial.print("SecaModerada:");
   Serial.println(40);
+  Serial.print(" ");
+  Serial.print("SecaSevera:");
+  Serial.println(15);
 
   delay(1000);
 }
